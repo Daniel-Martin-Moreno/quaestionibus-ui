@@ -1,0 +1,55 @@
+<p>
+  Convocatoria: {{pregunta.idConvocatoria}}
+</p>
+<form #preguntaForm="ngForm">
+<div id="pregunta">
+  <b>{{pregunta.numero}}.&nbsp;{{pregunta.enunciado}}</b>
+  <ol>
+    <li>{{pregunta.respuesta1}}</li>
+    <li>{{pregunta.respuesta2}}</li>
+    <li>{{pregunta.respuesta3}}</li>
+    <li>{{pregunta.respuesta4}}</li>
+  </ol>
+<br/>
+</div>
+<div  onclick="document.getElementById('solucion').style.display = 'block'">Pulsar aquí para ver solución: </div>
+<div id="solucion" style="display:none">
+   {{pregunta.solucion}}
+</div>
+<br/>
+
+<div *ngIf="pregunta.anulada"><b>ANULADA</b></div> 
+<br/>
+<div><label style="vertical-align: top">Comentarios:</label>
+  <!--<textarea cols=120 [(ngModel)]="pregunta.comentarios" name="comentarios"  placeholder="comentarios"></textarea>-->
+  <angular-editor [placeholder]="'Comentarios'" [(ngModel)]="pregunta.comentarios" name="comentarios"></angular-editor>
+ </div>
+ <br/>
+ <div>
+  <label style="vertical-align: top">Ruta de Imagen:</label>
+  <input [(ngModel)]="pregunta.rutaImagen" name="rutaImagen" size="80">
+</div>
+<br/>
+<button style="vertical-align: top" (click)="save()">Guardar</button>
+</form>
+<br/>
+<div><b>Temas relacionados:</b></div>
+<ul>
+	<li *ngFor="let tema of pregunta.temas">
+		{{tema.idConvocatoria}}-{{tema.numero}}-{{tema.enunciado}}
+		<button (click)="desasociarTema(tema.idTema)">Eliminar</button>
+	</li>
+</ul>
+<div>Nuevo tema:</div>
+<!-- OLD VERSION
+<input [(ngModel)]="idTemaNuevo" name="idTemaNuevo"  placeholder=""/>
+<button (click)="asociarTema()">Añadir</button>
+<br/>
+-->
+Convocatoria: <input [(ngModel)]="idConvocatoriaTemaNuevo" name="idConvocatoriaTemaNuevo"  placeholder="12"/>
+Parte: <select [(ngModel)]="selectedParte" >
+  <option *ngFor="let c of partes" [ngValue]="c">{{c.name}}</option>
+</select>
+Tema: <input [(ngModel)]="numeroTemaNuevo" name="numeroTemaNuevo"  placeholder=""/>
+<!--Parte: <input [(ngModel)]="parteTemaNuevo" name="parteTemaNuevo"  placeholder=""/>-->
+<button (click)="asociarTemaPorPropiedadesTema()">Añadir</button>

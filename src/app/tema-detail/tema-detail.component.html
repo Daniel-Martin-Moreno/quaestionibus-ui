@@ -1,0 +1,24 @@
+<div *ngFor="let pregunta of preguntas">
+    <b style="color:#0066ff">Convocatoria:&nbsp;{{pregunta.idConvocatoria}}</b>
+    <br>
+    <div style="color:#000099">{{pregunta.numero}}.&nbsp;<i>{{pregunta.enunciado}}</i>
+      <ol>
+        <li>{{pregunta.respuesta1}}</li>
+        <li>{{pregunta.respuesta2}}</li>
+        <li>{{pregunta.respuesta3}}</li>
+        <li>{{pregunta.respuesta4}}</li>
+      </ol>
+
+      <br/>
+        Solución: {{pregunta.solucion}}
+      <br/>
+    </div>
+  <br/>
+    <b>Comentarios: </b>
+    <div [innerHTML]="pregunta.comentarios"></div>
+  <br/>
+  <div *ngIf="pregunta.rutaImagen != null">
+  <img src="{{pregunta.rutaImagen}}"/>
+  </div>
+  <hr style="width:90%;height:2px;border-width:0;color:gray;background-color:gray">
+</div>

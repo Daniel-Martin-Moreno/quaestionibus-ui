@@ -1,0 +1,14 @@
+Versión actual de componentes:
+Angular CLI: 11.0.0
+Node: 10.19.0
+
+Ejecutar desde la línea de comandos en la carpeta principal del proyecto:
+ng serve
+
+para empezar a asignar temas a las preguntas de un tema:
+http://localhost:4200/convocatoria/17/pregunta/1
+
+como recuperar todas las preguntas relacionadas con un tema desde la aplicación angular:
+http://localhost:4200/convocatoria/18/tema/75/parte/ESPEC%C3%8DFICA/preguntas
+http://localhost:4200/convocatoria/18/tema/57/parte/ESPEC%C3%8DFICA/preguntas
+
